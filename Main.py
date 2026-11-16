@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Mar 15 19:45:19 2026
-
-@author: monka
-"""  
-
 import streamlit as st
 import pickle
 import pandas as pd
@@ -74,6 +67,16 @@ with col2:
     img = Draw.MolToImage(m_2d, size=(500, 1000))
     img = img.rotate(90, expand=True)
     st.image(img, use_container_width=True)
+
+
+selected_name = st.selectbox('Wybierz konkretny związek:', df['Full_name'])
+
+# Pobranie wybranego wiersza
+row = df[df['Full_name'] == selected_name].iloc[0]
+
+# --- WYNIKI ---
+st.subheader(f'Związek: {selected_name}')
+
 
 
                 
