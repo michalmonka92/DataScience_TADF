@@ -69,13 +69,6 @@ with col2:
     st.image(img, use_container_width=True)
 
 
-selected_name = st.selectbox('Wybierz konkretny związek:', df['Full_name'])
-
-# Pobranie wybranego wiersza
-row = df[df['Full_name'] == selected_name].iloc[0]
-
-# --- WYNIKI ---
-st.subheader(f'Związek: {selected_name}')
 
 
 
