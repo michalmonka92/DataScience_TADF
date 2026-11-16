@@ -52,13 +52,25 @@ df= load_my_data()
 
 
 #%%---------------------------------------------------------------------------------------Title--------------------------------------------------------------------------------------------------------------------------------
-kolor_ramki = "#ff9300"  # Twój kolor (np. niebieski)
-kolor_tla = "#363636"    # Jasny odcień dla wypełnienia
-pomarancz = "#ff9300"
-bg_color="#363636"
 
-st.subheader("Baza danych")
-st.dataframe(df,height=400,use_container_width=True)
+col1, col2= st.columns([5, 5])
+
+with col1:
+    st.subheader("Baza danych")
+    st.dataframe(df,height=590,use_container_width=True)
+
+with col2:
+
+    idx = st.slider("Wybierz indeks związku do wizualizacji", 1, 13499, 1)
+    
+    mol=df["Mol"][idx]
+    
+    m_2d = Chem.Mol(mol)
+    m_2d = Chem.RemoveHs(m_2d)
+    AllChem.Compute2DCoords(m_2d)
+    img = Draw.MolToImage(m_2d, size=(500, 1000))
+    img = img.rotate(90, expand=True)
+    st.image(img, use_container_width=True)
 
 
                 
