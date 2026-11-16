@@ -30,7 +30,8 @@ st.set_page_config(layout="wide")
 def load_my_data():
 
     filename_0 = "Baza_Danych_FULL_names.pkl" 
-    file_id0 = '1OB7gvnArcyFuUPmpj3Qa1pOvnLe70j19'
+    file_id0 = '1iT3NGplO2ikke8gopxvHLQD6TeI2zmfR'
+
 
     def download_file(file_id, output_name):
         url = f'https://drive.google.com/uc?id={file_id}'
